@@ -49,3 +49,9 @@ body{
   align-items: center;
 
 }
+.container-calc{
+  width: 1225px;
+  height: 716px;
+  border: 30px solid #A4D9FF;
+  background: white;
+}
