@@ -1,0 +1,46 @@
+/*******************************      MEDIA       ***********************/
+
+/*******************************      LG       ***********************/
+
+@media screen and (max-width: 1200px){
+  .container {
+    width: 992px;
+}
+
+}
+
+
+
+/*******************************      MD       ***********************/
+
+@media screen and (max-width: 992px){
+  .container {
+    width: 750px;
+}
+.md-show{
+  display: block;
+}
+}
+
+/*******************************      SM       ***********************/
+
+@media screen and (max-width: 768px){
+  .container {
+    width: 600px;
+}
+.sm-show{
+  display: block;
+}
+}
+
+/*******************************      XS       ***********************/
+
+@media screen and (max-width: 600px){
+  .container {
+    width: 320px;
+}
+.xs-show{
+  display: block;
+}
+
+}
