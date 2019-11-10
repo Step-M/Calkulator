@@ -26,8 +26,8 @@ div, header, section, p, a, img, body, html, input, textarea, footer, button{
 }
 
 body{
-  font-family: 'Museo Sans Cyrl';
-  height: 100vh;
+  font-family: 'Roboto';
+
 }
 /*
 *{
@@ -54,4 +54,22 @@ body{
   height: 716px;
   border: 30px solid #A4D9FF;
   background: white;
+}
+.radiobox-w {
+  display: flex;
+  justify-content: space-around;
+}
+.col-calc-content {
+  padding: 25px;
+  width: 100%;
+  border-right: 1px solid gray;
+}
+.col-info {
+  width: 360px;
+  padding: 25px;
+}
+
+.col-calc-content {
+  padding: 25px;
+  width: 100%;
 }
