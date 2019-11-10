@@ -62,7 +62,7 @@ body{
 .col-calc-content {
   padding: 25px;
   width: 100%;
-  border-right: 1px solid gray;
+  border-right: 1px solid #C9C9C9;
 }
 .col-info {
   width: 360px;
@@ -76,7 +76,7 @@ body{
 .container-calc-inner {
   /* width: 100%; */
   margin: 2px;
-  border: 1px solid gray;
+border: 2px solid #6A6A6A;
   height: calc(100% - 4px);
 }
 
