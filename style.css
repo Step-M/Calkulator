@@ -185,8 +185,8 @@ button.after {
   font-size: 20px;
   font-weight: 300;
 }
-button.after img{
- padding-left: 5px;
+button.after img {
+  padding-left: 15px;
 }
 .btn-back {
   width: 53px;
@@ -196,4 +196,41 @@ button.after img{
   align-items: center;
   border-radius: 50%;
   border: 1px solid #C0C0C0;
+  margin-right: 29px;
+}
+.buttons-w {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+.calc-content-bottom {
+  padding-top: 123px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.line-i{
+  background: #F6F6F6;
+  border: 1px solid #A5A5A5;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
+  border-radius: 10px;
+  width: 407px;
+  height: 10px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  position: relative;
+}
+.calc-content-bottom span {
+  display: block;
+  padding-left: 3px;
+}
+.ine-color {
+  position: absolute;
+  width: 20%;
+  height: 8px;
+  background: linear-gradient(0deg, #42BF07 6.38%, #ADFF00 100%);
+box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
+border-radius: 10px;
 }
