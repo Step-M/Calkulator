@@ -234,3 +234,20 @@ button.after img {
 box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
 border-radius: 10px;
 }
+
+
+.ine-color {
+  background-image: linear-gradient(45deg, #73de00 25%, #adff00 25%, #adff00 50%, #73de00 50%, #73de00 75%, #adff00 75%, #adff00 100%);
+  background-size: 8.49px 8.49px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  animation: progress-animation 24s ease infinite;
+}
+
+
+
+@keyframes progress-animation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
