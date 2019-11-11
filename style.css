@@ -226,28 +226,71 @@ button.after img {
   display: block;
   padding-left: 3px;
 }
-.ine-color {
+.progress-color {
   position: absolute;
-  width: 20%;
+ overflow: hidden;
+ width: 20%;
   height: 8px;
   background: linear-gradient(0deg, #42BF07 6.38%, #ADFF00 100%);
 box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
 border-radius: 10px;
 }
-
-
 .ine-color {
+  position: absolute;
   background-image: linear-gradient(45deg, #73de00 25%, #adff00 25%, #adff00 50%, #73de00 50%, #73de00 75%, #adff00 75%, #adff00 100%);
   background-size: 8.49px 8.49px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-  animation: progress-animation 24s ease infinite;
+  z-index: 2;
+  width: 100%;
 }
-
-
-
-@keyframes progress-animation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+@-webkit-keyframes MOVE-BG {
+	from {
+		-webkit-transform: translateX(0);
+	}
+	to { 
+		-webkit-transform: translateX(46px);
+	}
+}
+@keyframes MOVE-BG {
+	from {
+		transform: translateX(0);
+	}
+	to { 
+		transform: translateX(46px);
+	}
+}
+.ine-color {
+    position: absolute;
+    left: -46px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 400px;
+	
+  background: -webkit-repeating-linear-gradient(
+    145deg,
+    #42BF07 1px,
+    #73de00 2px,
+    #73de00 11px,
+    #42BF07 12px,
+    #42BF07 20px
+  );
+  background: repeating-linear-gradient(
+    -55deg,
+    #42BF07 1px,
+    #73de00 2px,
+    #73de00 11px,
+    #42BF07 12px,
+    #42BF07 20px
+	);
+    
+    -webkit-animation-name: MOVE-BG;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	
+    animation-name: MOVE-BG;
+	animation-duration: .6s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
 }
