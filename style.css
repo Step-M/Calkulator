@@ -53,22 +53,24 @@ body{
   border: 30px solid #A4D9FF;
   background: white;
 }
-.radiobox-w {
+ .step-1-inputs {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .col-calc-content {    
   padding: 6px 26px 0 26px;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 .col-info {
   padding: 26px;
 }
-
 .col-calc-content {
   width: 100%;
+  border-right: 1px solid #C9C9C9;
 }
 .container-calc-inner {
  position: relative;
@@ -132,21 +134,26 @@ border: 2px solid #6A6A6A;
   padding: 36px 0 18px 30px;
 }
 .radiobox-w label {
-  border: 1px solid red;
+  border: 1px solid #D2D2D2;
   border-radius: 5px;
   position: relative;
+  cursor: pointer;
 }
+
 .radiobox-w label input {
   position: absolute;
   top: 0;
   left: 0;
+  visibility: hidden;
 }
+
 .dir-info-w {
   padding-top: 26px;
 }
 .radio-text {
   font-size: 18px;
   padding: 20px 27px;
+  color: #838383;
 }
 .dir-info-w {
   display: flex;
@@ -229,7 +236,7 @@ button.after img {
 .progress-color {
   position: absolute;
  overflow: hidden;
- width: 20%;
+ width: 0%;
   height: 8px;
   background: linear-gradient(0deg, #42BF07 6.38%, #ADFF00 100%);
 box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
@@ -266,7 +273,6 @@ border-radius: 10px;
     bottom: 0;
     z-index: 2;
     width: 400px;
-	
   background: -webkit-repeating-linear-gradient(
     145deg,
     #42BF07 1px,
@@ -283,7 +289,6 @@ border-radius: 10px;
     #42BF07 12px,
     #42BF07 20px
 	);
-    
     -webkit-animation-name: MOVE-BG;
 	-webkit-animation-duration: .6s;
 	-webkit-animation-timing-function: linear;
@@ -294,3 +299,71 @@ border-radius: 10px;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 }
+.arrow-animated.start{
+  -webkit-animation-name: MOVE-arr;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+	
+    animation-name: MOVE-arr;
+	animation-duration: .6s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+@keyframes MOVE-arr {
+	from {
+    top: 5px;
+	}
+	to { 
+    top: 10px;
+	}
+}
+.check-inner {
+  background: linear-gradient(180deg, #FD6101 0%, #FC1D01 100%);
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+ 
+}
+.checked-boll {
+  border: 2px solid #FD6101;
+  padding: 6px;
+  position: absolute;
+  top: 15px;
+  right: 14px;
+  border-radius: 50%;
+  display: none;
+}
+.radiobox-w label.step1-checked {
+  border: 1px solid #FC2E01;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.radiobox-w label:hover {
+  border: 1px solid #FC2E01;
+}
+.radiobox-w  label.step1-checked .radio-text, .radiobox-w label:hover .radio-text {
+  color: #2F2F2F;
+}
+
+.radiobox-w  label.step1-checked .checked-boll{
+  display: block;
+}
+.move-animate label{
+  -webkit-animation-name: MOVE-label;
+	-webkit-animation-duration: .6s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+}
+@keyframes MOVE-label {
+	from {
+    transform: translate(0%);
+	}
+	to { 
+    transform: translate(-450%);
+    display: none;
+	}
+}
+.to-step2 label.label-s1{
+display: none;
+}
+ 
