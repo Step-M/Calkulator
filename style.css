@@ -125,7 +125,7 @@ border: 2px solid #6A6A6A;
 .saleyellow-text {
   padding-left: 20px;
 }
-.title-text {
+.title-text, .title-text2 {
   font-size: 26px;
   padding-bottom: 28px;
 }
@@ -367,3 +367,97 @@ border-radius: 10px;
 display: none;
 }
  
+.s2-radio-w {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.s2-radio-w label {
+  width: 300px;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  margin: 0 20px 15px 0px;
+}
+.checked-boll2 {
+  background: red;
+  background: linear-gradient(180deg, #FD6101 26.56%, #FC2E01 100%);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+label.label-s2 .radio-text {
+  padding: 16px;
+}
+
+/**********************************/
+span.irs-handle.single {
+  background: linear-gradient(0deg, #999999 0%, #E6E6E6 50%, #9B9B9B 100%);
+  border: 1px solid #2F2F2F;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.45);
+  width: 28px;
+  height: 28px;
+  top: 16px;
+  border-radius: 50%;
+}
+
+span.irs-bar.irs-bar--single {
+  background: linear-gradient(0deg, #42BF07 6.38%, #ADFF00 100%);
+  box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
+  border-radius: 8px 0 0 8px;
+}
+
+.irs--flat .irs-handle>i:first-child {
+  background-color: transparent;
+}
+.irs--flat .irs-handle.state_hover>i:first-child, .irs--flat .irs-handle:hover>i:first-child{
+  opacity: 0;
+}
+
+.form-hom-flex-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 33px;
+}
+
+.slider-out-w {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slidecontainer {
+  width: 555px;
+  margin: -4px 4px;
+}
+.sqw-w {
+  padding-top: 24px;
+}
+.slider-inp input {
+  line-height: 0;
+  border: 0;
+   -webkit-appearance: none;
+  font-size: 50px;
+  height: 42px;
+  text-align: right;
+  outline: none;
+}
+.slider-inp span {
+  font-size: 23px;
+  position: absolute;
+  bottom: 6px;
+  right: 23px;
+}
+
+.slider-inp {
+  position: relative;
+  padding: 0;
+}
+.slider-inp input {
+  padding-right: 36px;
+}
+.radiobox-w {
+  padding-bottom: 14px;
+}
