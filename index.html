@@ -6,6 +6,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500,700,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="ion.rangeSlider.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="media.css">
 
@@ -19,7 +20,7 @@
 			<div class="container-calc-inner">
 				<div class="sale-yellow">
 					<div class="saleyellow-text">Ваша скидка: <span>0 %</span>
-						<div class="arrow-animated"><img src="smal-arrows.svg" alt=""></div>
+						<div class="arrow-animated"><img src="img/smal-arrows.svg" alt=""></div>
 					</div>
 				</div>
 				<p class="title-top-line">Узнайте стоимость ремонта квартиры + получите СКИДКУ на ремонт 15% +
@@ -30,7 +31,7 @@
 						<div class="radiobox-w">
 							<div class="step-1-inputs">
 								<label class="label-s1" for="novos-bez-ottdel">
-									<img src="novostroy-bez-otdelki.png" alt="">
+									<img src="img/novostroy-bez-otdelki.png" alt="">
 									<div class="radio-text">Новостройка<br>без отделки</div>
 									<input type="radio" id="novos-bez-ottdel" name="new-b-o">
 									<div class="checked-boll">
@@ -39,7 +40,7 @@
 								</label>
 
 								<label class="label-s1" for="novos-bez-ottdel2">
-									<img src="predchist-otdelka.png" alt="">
+									<img src="img/predchist-otdelka.png" alt="">
 									<div class="radio-text">Предчистовая
 										<br>«белая» отделка</div>
 									<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
@@ -49,7 +50,7 @@
 								</label>
 
 								<label class="label-s1" for="novos-bez-ottdel3">
-									<img src="vtor-fond.png" alt="">
+									<img src="img/vtor-fond.png" alt="">
 									<div class="radio-text">Квартира во
 										<br>вторичном фонде</div>
 									<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
@@ -60,38 +61,54 @@
 							</div>
 
 							<div class="step-2-inputs">
-								<label class="label-s2" for="novos-bez-ottdel2">
-									<div class="radio-text">Квартира «под ключ»</div>
-									<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
-									<div class="checked-boll2">
-										<div class="check-inner"></div>
-									</div>
-								</label>
+								<div class="s2-radio-w">
+										<label class="label-s2" for="novos-bez-ottdel2">
+									
+												<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
+												<div class="checked-boll2">
+												</div>
+												<div class="radio-text">Квартира «под ключ»</div>
+											</label>
+			
+											<label class="label-s2" for="novos-bez-ottdel3">
+												
+												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
+												<div class="checked-boll2"></div>
+												<div class="radio-text">Комната</div>
+											</label>
+			
+											<label class="label-s2" for="novos-bez-ottdel3">
+												
+												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
+												<div class="checked-boll2"></div>
+												<div class="radio-text">Ванная комната</div>
+											</label>
+			
+											<label class="label-s2" for="novos-bez-ottdel3">
+											
+												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
+												<div class="checked-boll2">
+												</div>
+												<div class="radio-text">Дом</div>
+											</label>
+								</div>
 
-								<label class="label-s2" for="novos-bez-ottdel3">
-									<div class="radio-text">Комната</div>
-									<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-									<div class="checked-boll2">
-										<div class="check-inner"></div>
-									</div>
-								</label>
 
-								<label class="label-s2" for="novos-bez-ottdel3">
-									<div class="radio-text">Ванная комната</div>
-									<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-									<div class="checked-boll2">
-										<div class="check-inner"></div>
-									</div>
-								</label>
-
-								<label class="label-s2" for="novos-bez-ottdel3">
-									<div class="radio-text">Дом</div>
-									<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-									<div class="checked-boll2">
-										<div class="check-inner"></div>
-									</div>
-								</label>
+								<div class="sqw-w">
+										<div class="title-text2">Какая общая площадь всех помещений?</div>
+										<div class="slider-out-w">
+											<div class="sliser-w">
+												<div class="slidecontainer">
+													<input type="text" class="js-range-slider" name="my_range" />
+												</div>
+											</div>
+											<div class="slider-inp">
+												<input id="demo" type="number" name="square" min="20" max="150" value="50"><span>м<sup>2</sup></span>
+											</div>
+										</div>
+								</div>
 							</div>
+
 						</div>
 						<div class="calc-content-bottom">
 							<div class="line-indikator-w">
@@ -104,19 +121,19 @@
 								</div>
 							</div>
 							<div class="buttons-w">
-								<div class="btn-back"><img src="arrow-before.svg" alt=""></div>
-								<button class="after">ДАЛЕЕ<img src="arrow-next.svg" alt=""></button>
+								<div class="btn-back"><img src="img/arrow-before.svg" alt=""></div>
+								<button class="after">ДАЛЕЕ<img src="img/arrow-next.svg" alt=""></button>
 							</div>
 						</div>
 					</div>
 					<div class="col-info">
 						<div class="col-info-text">Выбранные параметры ремонта:</div>
 						<div class="parm-rem-img-w">
-							<img class="chenged-img" src="novostroy-bez-otdelki.png" alt="">
+							<img class="chenged-img" src="img/novostroy-bez-otdelki.png" alt="">
 						</div>
 						<div class="dir-info-w">
 							<div class="dir-inner">
-								<img src="specialist.png" alt="">
+								<img src="img/specialist.png" alt="">
 								<div class="dir-name">Александр<br>Малышев</div>
 								<div class="dir-position">Технический<br>директор</div>
 							</div>
@@ -142,7 +159,9 @@
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="ion.rangeSlider.min.js"></script>
 	<script>
+	$('input[type="range"]').on('input', function () {  });
 		//progress barr change
 function progressbar (persent){
 	$('.progress-color').attr('style', 'width:'+persent+'%');
@@ -156,10 +175,14 @@ function changeimg (label){
 
 
 		$(".radiobox-w input").click(function () {
-			var step1 = $(this);
-			if (step1.is(':checked')) {
-				$('.radiobox-w label').removeClass('step1-checked');
-				var step1Label = step1.parents('label')
+			var step1 = $('.step-1-inputs input');
+			var step2 = $('.step-2-inputs input');
+			
+
+			if ( step1.is(':checked')) {
+				
+				$('.step-1-inputs label').removeClass('step2-checked');
+				var step1Label = $(this).parents('label')
 				step1Label.addClass('step1-checked');
 //change img 
 
@@ -182,7 +205,55 @@ function changeimg (label){
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
 			}
+			else if(step2.is(':checked')) {
+				alert('jjjjj');
+				$('.step-2-inputs label').removeClass('step2-checked');
+				var step1Label = $(this).parents('label')
+				step1Label.addClass('step2-checked');
+
+				progressbar ('40');
+			}
 		});
+
+
+
+		// Range sloder home top
+		$(".js-range-slider").ionRangeSlider({
+			type: "single",
+			hide_min_max: true,
+			keyboard: true,
+			min: 0,
+			max: 150,
+			from: parseInt($('input[name="square"]').val()),
+			step: 1,
+			grid: true,
+			grid_num: 6,
+			hide_from_to: true,
+			onChange: function (data) {
+				$('input[name="square"]').val(data.from);
+			}
+		});
+		var ion_slider = $(".js-range-slider").data("ionRangeSlider");
+		$('input[name="square"]').click(function () {
+			$(this).val(" ");
+		})
+		$('input[name="square"]').keyup(function () {
+			if ($(this).val() != '') {
+				var square_val = parseInt($(this).val());
+				if ($(this).val() > 200) {
+
+					$(this).val(200);
+				}
+			}
+			else {
+				var square_val = 0;
+			}
+			ion_slider.update({
+				from: square_val
+			});
+		});
+
+
 	</script>
 </body>
 
