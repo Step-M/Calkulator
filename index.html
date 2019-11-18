@@ -60,35 +60,31 @@
 								</label>
 							</div>
 
-							<div class="step-2-inputs">
+							<div class="step-2-inputs d-none">
 								<div class="s2-radio-w">
-										<label class="label-s2" for="novos-bez-ottdel2">
-									
-												<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
-												<div class="checked-boll2">
-												</div>
+										    <label class="label-s2" for="pod-cl">
+												<div class="bol-uncheck"></div>
+												<input type="radio" id="pod-cl" name="pod-cl11">
 												<div class="radio-text">Квартира «под ключ»</div>
+												
 											</label>
 			
-											<label class="label-s2" for="novos-bez-ottdel3">
-												
-												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-												<div class="checked-boll2"></div>
+											<label class="label-s2" for="komnata">
+											    <div class="bol-uncheck"></div>
+												<input type="radio" id="komnata" name="komnata-n">
 												<div class="radio-text">Комната</div>
 											</label>
 			
-											<label class="label-s2" for="novos-bez-ottdel3">
-												
-												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-												<div class="checked-boll2"></div>
+											<label class="label-s2" for="vanna">
+												<div class="bol-uncheck"></div>
+												<input type="radio" id="vanna" name="vanna-n">
 												<div class="radio-text">Ванная комната</div>
 											</label>
 			
-											<label class="label-s2" for="novos-bez-ottdel3">
-											
-												<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
-												<div class="checked-boll2">
-												</div>
+											<label class="label-s2" for="dom">
+												<div class="bol-uncheck"></div>
+												<input type="radio" id="dom" name="dom-name">
+												
 												<div class="radio-text">Дом</div>
 											</label>
 								</div>
@@ -174,13 +170,18 @@ function changeimg (label){
 }
 
 
-		$(".radiobox-w input").click(function () {
-			var step1 = $('.step-1-inputs input');
-			var step2 = $('.step-2-inputs input');
-			
+function changeTextinp (thistext){
+	var lalala = thistext.next().text();
+				$('.step2-checked').remove();
+               $('<div class="step2-checked">'+lalala+'</div>').appendTo('.parm-rem-img-w');
+}
 
-			if ( step1.is(':checked')) {
-				
+
+
+		$(".radiobox-w input").click(function () {
+			var choothenInput = $(this).parents();
+		
+			if (choothenInput.hasClass('step-1-inputs')) {
 				$('.step-1-inputs label').removeClass('step2-checked');
 				var step1Label = $(this).parents('label')
 				step1Label.addClass('step1-checked');
@@ -192,11 +193,13 @@ function changeimg (label){
 				$('.arrow-animated').addClass('start');
 //animation labels move
 				function shangeslide() {
-					$(".container-calc-inner").addClass('move-animate')
+					$(".step-1-inputs").addClass('move-animate');
+					
 				}
 				setTimeout(shangeslide, 500);
 				function shangeslide2() {
-					$(".container-calc-inner").addClass('to-step2').removeClass('move-animate');
+					$(".step-1-inputs").addClass('to-step2').removeClass('move-animate');
+					$('.step-2-inputs').removeClass('d-none');
 				}
 				setTimeout(shangeslide2, 600);
 //button step2 add class
@@ -204,12 +207,14 @@ function changeimg (label){
 //texts step2 change 
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
+			
 			}
-			else if(step2.is(':checked')) {
-				alert('jjjjj');
-				$('.step-2-inputs label').removeClass('step2-checked');
-				var step1Label = $(this).parents('label')
-				step1Label.addClass('step2-checked');
+			else if(choothenInput.hasClass('step-2-inputs')) {
+                $('.label-s2').removeClass('step2-checked');
+				var step1Labe2 = $(this).parents('label');
+				var thistexStep2 = $(this);
+				changeTextinp (thistexStep2);
+				step1Labe2.addClass('step2-checked');
 
 				progressbar ('40');
 			}
