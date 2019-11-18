@@ -381,7 +381,14 @@ display: none;
   padding: 0 20px;
   margin: 0 20px 15px 0px;
 }
-.checked-boll2 {
+.bol-uncheck {
+  background: #F0F0F0;
+  border: 1px solid #D2D2D2;
+  border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+.step2-checked .bol-uncheck {
   background: red;
   background: linear-gradient(180deg, #FD6101 26.56%, #FC2E01 100%);
   border-radius: 50%;
@@ -460,4 +467,8 @@ span.irs-bar.irs-bar--single {
 }
 .radiobox-w {
   padding-bottom: 14px;
+}
+
+.d-none{
+  display: none;
 }
