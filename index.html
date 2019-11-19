@@ -172,27 +172,14 @@ function changeimg (label){
 
 function changeTextinp (thistext){
 	var lalala = thistext.next().text();
-				$('.step2-checked').remove();
-               $('<div class="step2-checked">'+lalala+'</div>').appendTo('.parm-rem-img-w');
+				$('.step2-text-checked').remove();
+               $('<div class="step2-text-checked">'+lalala+'</div>').appendTo('.parm-rem-img-w');
 }
 
-
-
-		$(".radiobox-w input").click(function () {
-			var choothenInput = $(this).parents();
-		
-			if (choothenInput.hasClass('step-1-inputs')) {
-				$('.step-1-inputs label').removeClass('step2-checked');
-				var step1Label = $(this).parents('label')
-				step1Label.addClass('step1-checked');
-//change img 
-
-				changeimg(step1Label); 
-                 progressbar ('20');
-
-				$('.arrow-animated').addClass('start');
-//animation labels move
-				function shangeslide() {
+//slide to step-2
+function slideToStep2 () {
+	//animation labels move
+	function shangeslide() {
 					$(".step-1-inputs").addClass('move-animate');
 					
 				}
@@ -202,12 +189,27 @@ function changeTextinp (thistext){
 					$('.step-2-inputs').removeClass('d-none');
 				}
 				setTimeout(shangeslide2, 600);
+				
 //button step2 add class
+				$('.btn-back').addClass('step-btn-2');
 				$('button.after').addClass('step-btn-2');
 //texts step2 change 
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
-			
+				$('.arrow-animated').addClass('start');
+}
+
+		$(".radiobox-w input").click(function () {
+			var choothenInput = $(this).parents();
+		
+			if (choothenInput.hasClass('step-1-inputs')) {
+				$('.step-1-inputs label').removeClass('step2-checked');
+				var step1Label = $(this).parents('label')
+				step1Label.addClass('step1-checked');
+//change img 
+				changeimg(step1Label); 
+                 progressbar ('20');
+				slideToStep2 ();
 			}
 			else if(choothenInput.hasClass('step-2-inputs')) {
                 $('.label-s2').removeClass('step2-checked');
@@ -215,7 +217,6 @@ function changeTextinp (thistext){
 				var thistexStep2 = $(this);
 				changeTextinp (thistexStep2);
 				step1Labe2.addClass('step2-checked');
-
 				progressbar ('40');
 			}
 		});
