@@ -86,6 +86,7 @@ border: 2px solid #6A6A6A;
 .parm-rem-img-w {
   width: 320px;
   height: 260px;
+  position: relative;
 }
 
 .parm-rem-img-w img {
@@ -192,9 +193,7 @@ button.after {
   font-size: 20px;
   font-weight: 300;
 }
-button.after img {
-  padding-left: 15px;
-}
+
 .btn-back {
   width: 53px;
   height: 53px;
@@ -204,6 +203,9 @@ button.after img {
   border-radius: 50%;
   border: 1px solid #C0C0C0;
   margin-right: 29px;
+}
+.btn-back:hover {
+  border: 1px solid #FC2E01;
 }
 .buttons-w {
   display: flex;
@@ -471,4 +473,16 @@ span.irs-bar.irs-bar--single {
 
 .d-none{
   display: none;
+}
+.step2-text-checked {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  bottom: 0;
+  height: 46px;
+  position: absolute;
+  padding-left: 18px;
+  color: white;
+  font-size: 18px;
 }
