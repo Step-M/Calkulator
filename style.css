@@ -245,6 +245,34 @@ button.after {
 box-shadow: inset 0px 4px 4px rgba(160, 159, 159, 0.25);
 border-radius: 10px;
 }
+.opasitianime{
+  opacity: 1;
+  -webkit-animation-name: OPASITY;
+	-webkit-animation-duration: .5s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: 1;
+	
+    animation-name: OPASITY;
+	animation-duration: .5s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+}
+@-webkit-keyframes OPASITY {
+	from {
+	opacity: 0;
+	}
+	to { 
+		opacity: 1;
+	}
+}
+@keyframes OPASITY {
+	from {
+    opacity: 0;
+    }
+    to { 
+      opacity: 1;
+    }
+  }
 .ine-color {
   position: absolute;
   background-image: linear-gradient(45deg, #73de00 25%, #adff00 25%, #adff00 50%, #73de00 50%, #73de00 75%, #adff00 75%, #adff00 100%);
@@ -484,4 +512,10 @@ span.irs-bar.irs-bar--single {
   padding-left: 18px;
   color: white;
   font-size: 18px;
+}
+.radiobox-w-inner img {
+  border-radius: 5px;
+}
+.step3-checked .checked-boll {
+  display: block;
 }
