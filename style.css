@@ -53,7 +53,8 @@ body{
   border: 30px solid #A4D9FF;
   background: white;
 }
- .step-1-inputs {
+
+ .step-1-inputs,  .step-3-inputs  {
   display: flex;
   justify-content: space-between;
   width: 100%;
