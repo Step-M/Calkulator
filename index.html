@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300i,400,500,700,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="ion.rangeSlider.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="media.css">
 
@@ -28,8 +29,12 @@
 				<div class="calc-content">
 					<div class="col-calc-content">
 						<div class="title-text">Где необходимо делать ремонт?</div>
-						<div class="radiobox-w">
-							<div class="radiobox-w-inner step-1-inputs">
+						<!-- Slider main container -->
+<div class="swiper-container">
+		<!-- Additional required wrapper -->
+	
+						<div class="radiobox-w swiper-wrapper">
+							<div class="swiper-slide radiobox-w-inner step-1-inputs">
 								<label class="label-s1" for="novos-bez-ottdel">
 									<img src="img/novostroy-bez-otdelki.png" alt="">
 									<div class="radio-text">Новостройка<br>без отделки</div>
@@ -60,7 +65,7 @@
 								</label>
 							</div>
 
-							<div class="radiobox-w-inner step-2-inputs d-none">
+							<div class="swiper-slide radiobox-w-inner step-2-inputs">
 								<div class="s2-radio-w">
 										    <label class="label-s2" for="pod-cl">
 												<div class="bol-uncheck"></div>
@@ -104,38 +109,77 @@
 										</div>
 								</div>
 							</div>
-							<div class="radiobox-w-inner step-3-inputs d-none">
-									<label class="label-s3" for="novos-bez-ottdel">
-											<img src="img/novostroy-bez-otdelki.png" alt="">
-											<div class="radio-text">Новостройка<br>без отделки</div>
-											<input type="radio" id="novos-bez-ottdel" name="new-b-o">
+							<div class="swiper-slide radiobox-w-inner step-3-inputs">
+									<label class="label-s3" for="kosmrt">
+											<img src="img/kosmrt-standart.png" alt="">
+											<div class="radio-text">Косметический<br>
+												ремонт (комфорт)</div>
+											<input type="radio" id="kosmrt" name="kosmrt">
 											<div class="checked-boll">
 												<div class="check-inner"></div>
 											</div>
 										</label>
 		
-										<label class="label-s3" for="novos-bez-ottdel2">
-											<img src="img/predchist-otdelka.png" alt="">
-											<div class="radio-text">Предчистовая
-												<br>«белая» отделка</div>
-											<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
+										<label class="label-s3" for="eurostandart">
+											<img src="img/eurostandart.png" alt="">
+											<div class="radio-text">Евроремонт<br>
+													(стандарт)</div>
+											<input type="radio" id="eurostandart" name="eurostandart">
 											<div class="checked-boll">
 												<div class="check-inner"></div>
 											</div>
 										</label>
 		
-										<label class="label-s3" for="novos-bez-ottdel3">
-											<img src="img/vtor-fond.png" alt="">
-											<div class="radio-text">Квартира во
-												<br>вторичном фонде</div>
-											<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
+										<label class="label-s3" for="disigne">
+											<img src="img/disigne-remont.png" alt="">
+											<div class="radio-text">Дизайнерский<br>
+													ремонт</div>
+											<input type="radio" id="disigne" name="disigne">
 											<div class="checked-boll">
 												<div class="check-inner"></div>
 											</div>
 										</label>
 							</div>
-
+							<div class="swiper-slide radiobox-w-inner step-4-inputs">
+									<div class="s2-radio-w">
+												<label class="label-s2" for="pod-cl">
+													<div class="bol-uncheck"></div>
+													<input type="radio" id="pod-cl" name="pod-cl11">
+													<div class="radio-text">Можно приступать</div>
+													
+												</label>
+				
+												<label class="label-s2" for="komnata">
+													<div class="bol-uncheck"></div>
+													<input type="radio" id="komnata" name="komnata-n">
+													<div class="radio-text">В этом месяце</div>
+												</label>
+				
+												<label class="label-s2" for="vanna">
+													<div class="bol-uncheck"></div>
+													<input type="radio" id="vanna" name="vanna-n">
+													<div class="radio-text">В течение 2-х месяцев</div>
+												</label>
+				
+												<label class="label-s2" for="dom">
+													<div class="bol-uncheck"></div>
+													<input type="radio" id="dom" name="dom-name">
+													
+													<div class="radio-text">В течение года</div>
+												</label>
+												<label class="label-s2" for="dom">
+														<div class="bol-uncheck"></div>
+														<input type="radio" id="dom" name="dom-name">
+														
+														<div class="radio-text">Через год и более</div>
+													</label>
+									</div>
+	
+								</div>
 						</div>
+		<!-- If we need pagination -->
+		<div class="swiper-pagination"></div>
+	
 						<div class="calc-content-bottom">
 							<div class="line-indikator-w">
 								<span>0%</span>
@@ -146,11 +190,14 @@
 
 								</div>
 							</div>
+
 							<div class="buttons-w">
-								<div class="btn-back"><img src="img/arrow-before.svg" alt=""></div>
-								<button class="btn-next after">ДАЛЕЕ<img src="img/arrow-next.svg" alt=""></button>
+								<div class="btn-back swiper-button-after"><img src="img/arrow-before.svg" alt=""></div>
+							    <button class="btn-next after swiper-button-before">ДАЛЕЕ<img src="img/arrow-next.svg" alt=""></button>
 							</div>
 						</div>
+
+</div>
 					</div>
 					<div class="col-info">
 						<div class="col-info-text">Выбранные параметры ремонта:</div>
@@ -186,6 +233,7 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="ion.rangeSlider.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 	<script>
 	$('input[type="range"]').on('input', function () {  });
 		//progress barr change
@@ -204,23 +252,39 @@ function changeTextinp (thistext){
 				$('.step2-text-checked').remove();
                $('<div class="step2-text-checked">'+blalala+'</div>').appendTo('.parm-rem-img-w');
 }
-
+var swiper = new Swiper('.swiper-container', {
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        nextEl: '.swiper-button-before',
+        prevEl: '.swiper-button-after',
+      },
+	  allowTouchMove: false,
+    });
+/*
 //animation labels move
 function slideAnime(animatedBlock) {	
 					$(animatedBlock).addClass('move-animate');	
 				}
 function doNextStep (hideprevSlide, showNextSlide){
 	$(hideprevSlide).addClass('d-none').removeClass('move-animate');
-	$(showNextSlide).removeClass('d-none');
+	$(showNextSlide).removeClass('d-none').addClass('opasitianime');
+	$(hideprevSlide).hide('slide', {direction: 'left'}, 1000);
 }
-				
+function naextAnimation(nextslideClass) {
+$(nextslideClass).removeClass('opasity-animation');
+}
+
 //slide to step-2
 function slideToStep2 () {
 				setTimeout(slideAnime, 500, ".step-1-inputs");
 			    setTimeout(doNextStep, 700, ".step-1-inputs", '.step-2-inputs');
+				
     //button step2 add class
-				$('.btn-back').addClass('step-btn-2');
-				$('button.after').addClass('step-btn-2');
+				$('.btn-back').addClass('step-btn-1');
+				$('button.after').addClass('step-btn-1');
     //texts step2 change 
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
@@ -248,17 +312,83 @@ function slideToStep2 () {
 				changeTextinp (thistexStep2);
 				step1Labe2.addClass('step2-checked');
 				progressbar ('40');
+				$('.btn-back').removeClass('step-btn-2').addClass('step-btn-1');
+			}
+			else if(choothenInput.hasClass('step-3-inputs')) {
+				$('.step-3-inputs label').removeClass('step3-checked');
+				var stepLabel3 = $(this).parents('label')
+				stepLabel3.addClass('step3-checked');
+//change img 
+				changeimg(stepLabel3); 
+                 progressbar ('60');
+				 $('.btn-back').removeClass('step-btn-3').addClass('step-btn-2');
+				 //slideToStep4 ();
 			}
 		});
-
+//make shorter
 $('.btn-next').click(function () {
-	var nextCheckbox = $('.radiobox-w-inner');
-	if (nextCheckbox.hasClass('step-2-inputs')) {
+	var btnNext = $(this);
+	var btnBack2 = $('.btn-back');
+	if(btnNext.hasClass('step-btn-1')){
+		setTimeout(slideAnime, 100, ".step-1-inputs");
+		setTimeout(doNextStep, 700, '.step-1-inputs','.step-2-inputs');
+		progressbar ('20');
+		btnNext.removeClass('step-btn-1').addClass('step-btn-2');
+		btnNext.removeClass('step-btn-2')
+	}
+    else if (btnNext.hasClass('step-btn-2')) {
 		setTimeout(slideAnime, 100, ".step-2-inputs");
-
-		setTimeout(doNextStep, 700, '.step-2-inputs','.step-3-inputs');
+		setTimeout(doNextStep, 700, '.step-2-inputs','.step-1-inputs');
+		progressbar ('40');
+		btnNext.removeClass('step-btn-2').addClass('step-btn-3');
+		btnBack2.removeClass('step-btn-2').addClass('step-btn-1');
+	}
+	else if(btnNext.hasClass('step-btn-3')){
+		setTimeout(slideAnime, 100, ".step-3-inputs");
+		setTimeout(doNextStep, 700, '.step-3-inputs','.step-4-inputs');
+		progressbar ('60');
+		btnNext.removeClass('step-btn-3').addClass('step-btn-4');
+		btnBack2.removeClass('step-btn-3').addClass('step-btn-4');
+	}
+	else if (btnNext.hasClass('step-btn-4')){
+		setTimeout(slideAnime, 100, ".step-4-inputs");
+		setTimeout(doNextStep, 700, '.step-4-inputs','.step-5-inputs');
+		progressbar ('80');
+		btnNext.removeClass('step-btn-4').addClass('step-btn-5');
+		btnBack2.removeClass('step-btn-4').addClass('step-btn-5');
 	}
 });
+//make shorter
+$('.btn-back').click(function () {
+	var btnBack = $(this);
+	if(btnBack.hasClass('step-btn-1')){
+		setTimeout(slideAnime, 100, ".step-1-inputs");
+		setTimeout(doNextStep, 700, '.step-2-inputs','.step-1-inputs');
+	}
+    else if (btnBack.hasClass('step-btn-2')) {
+		setTimeout(slideAnime, 100, ".step-2-inputs");
+		setTimeout(doNextStep, 700, '.step-3-inputs','.step-2-inputs');
+		progressbar ('40');
+		btnNext.removeClass('step-btn-2').addClass('step-btn-1');
+		btnBack.removeClass('step-btn-2').addClass('step-btn-1');
+	}
+	else if(btnBack.hasClass('step-btn-3')){
+		setTimeout(slideAnime, 100, ".step-3-inputs");
+		setTimeout(doNextStep, 700, '.step-3-inputs','.step-3-inputs');
+		progressbar ('60');
+		btnNext.removeClass('step-btn-3').addClass('step-btn-2');
+		btnBack.removeClass('step-btn-3').addClass('step-btn-2');
+	}
+	else if (btnBack.hasClass('step-btn-4')){
+		setTimeout(slideAnime, 100, ".step-4-inputs");
+		setTimeout(doNextStep, 700, '.step-4-inputs','.step-4-inputs');
+		progressbar ('80');
+		btnNext.removeClass('step-btn-4').addClass('step-btn-3');
+		btnBack.removeClass('step-btn-4').addClass('step-btn-3');
+	}
+});
+*/
+
 
 		// Range sloder home top
 		$(".js-range-slider").ionRangeSlider({
