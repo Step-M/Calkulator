@@ -200,10 +200,11 @@ function changeimg (label){
 }
 
 function changeTextinp (thistext){
-	var lalala = thistext.next().text();
+	var blalala = thistext.next().text();
 				$('.step2-text-checked').remove();
-               $('<div class="step2-text-checked">'+lalala+'</div>').appendTo('.parm-rem-img-w');
+               $('<div class="step2-text-checked">'+blalala+'</div>').appendTo('.parm-rem-img-w');
 }
+
 //animation labels move
 function slideAnime(animatedBlock) {	
 					$(animatedBlock).addClass('move-animate');	
@@ -215,12 +216,8 @@ function doNextStep (hideprevSlide, showNextSlide){
 				
 //slide to step-2
 function slideToStep2 () {
-
-	            slideAnime(".step-1-inputs");
-				setTimeout(slideAnime(), 500);
-
-			    setTimeout(doNextStep(".step-1-inputs", '.step-2-inputs'), 600);
-				
+				setTimeout(slideAnime, 500, ".step-1-inputs");
+			    setTimeout(doNextStep, 700, ".step-1-inputs", '.step-2-inputs');
     //button step2 add class
 				$('.btn-back').addClass('step-btn-2');
 				$('button.after').addClass('step-btn-2');
@@ -257,8 +254,9 @@ function slideToStep2 () {
 $('.btn-next').click(function () {
 	var nextCheckbox = $('.radiobox-w-inner');
 	if (nextCheckbox.hasClass('step-2-inputs')) {
+		setTimeout(slideAnime, 100, ".step-2-inputs");
 
-		doNextStep('.step-2-inputs','.step-3-inputs');
+		setTimeout(doNextStep, 700, '.step-2-inputs','.step-3-inputs');
 	}
 });
 
