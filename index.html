@@ -29,7 +29,7 @@
 					<div class="col-calc-content">
 						<div class="title-text">Где необходимо делать ремонт?</div>
 						<div class="radiobox-w">
-							<div class="step-1-inputs">
+							<div class="radiobox-w-inner step-1-inputs">
 								<label class="label-s1" for="novos-bez-ottdel">
 									<img src="img/novostroy-bez-otdelki.png" alt="">
 									<div class="radio-text">Новостройка<br>без отделки</div>
@@ -60,7 +60,7 @@
 								</label>
 							</div>
 
-							<div class="step-2-inputs d-none">
+							<div class="radiobox-w-inner step-2-inputs d-none">
 								<div class="s2-radio-w">
 										    <label class="label-s2" for="pod-cl">
 												<div class="bol-uncheck"></div>
@@ -104,6 +104,36 @@
 										</div>
 								</div>
 							</div>
+							<div class="radiobox-w-inner step-3-inputs d-none">
+									<label class="label-s3" for="novos-bez-ottdel">
+											<img src="img/novostroy-bez-otdelki.png" alt="">
+											<div class="radio-text">Новостройка<br>без отделки</div>
+											<input type="radio" id="novos-bez-ottdel" name="new-b-o">
+											<div class="checked-boll">
+												<div class="check-inner"></div>
+											</div>
+										</label>
+		
+										<label class="label-s3" for="novos-bez-ottdel2">
+											<img src="img/predchist-otdelka.png" alt="">
+											<div class="radio-text">Предчистовая
+												<br>«белая» отделка</div>
+											<input type="radio" id="novos-bez-ottdel2" name="new-b-o">
+											<div class="checked-boll">
+												<div class="check-inner"></div>
+											</div>
+										</label>
+		
+										<label class="label-s3" for="novos-bez-ottdel3">
+											<img src="img/vtor-fond.png" alt="">
+											<div class="radio-text">Квартира во
+												<br>вторичном фонде</div>
+											<input type="radio" id="novos-bez-ottdel3" name="new-b-o">
+											<div class="checked-boll">
+												<div class="check-inner"></div>
+											</div>
+										</label>
+							</div>
 
 						</div>
 						<div class="calc-content-bottom">
@@ -118,7 +148,7 @@
 							</div>
 							<div class="buttons-w">
 								<div class="btn-back"><img src="img/arrow-before.svg" alt=""></div>
-								<button class="after">ДАЛЕЕ<img src="img/arrow-next.svg" alt=""></button>
+								<button class="btn-next after">ДАЛЕЕ<img src="img/arrow-next.svg" alt=""></button>
 							</div>
 						</div>
 					</div>
@@ -169,31 +199,32 @@ function changeimg (label){
 				$('.chenged-img').attr('src', imgcheck);
 }
 
-
 function changeTextinp (thistext){
 	var lalala = thistext.next().text();
 				$('.step2-text-checked').remove();
                $('<div class="step2-text-checked">'+lalala+'</div>').appendTo('.parm-rem-img-w');
 }
-
+//animation labels move
+function slideAnime(animatedBlock) {	
+					$(animatedBlock).addClass('move-animate');	
+				}
+function doNextStep (hideprevSlide, showNextSlide){
+	$(hideprevSlide).addClass('d-none').removeClass('move-animate');
+	$(showNextSlide).removeClass('d-none');
+}
+				
 //slide to step-2
 function slideToStep2 () {
-	//animation labels move
-	function shangeslide() {
-					$(".step-1-inputs").addClass('move-animate');
-					
-				}
-				setTimeout(shangeslide, 500);
-				function shangeslide2() {
-					$(".step-1-inputs").addClass('to-step2').removeClass('move-animate');
-					$('.step-2-inputs').removeClass('d-none');
-				}
-				setTimeout(shangeslide2, 600);
+
+	            slideAnime(".step-1-inputs");
+				setTimeout(slideAnime(), 500);
+
+			    setTimeout(doNextStep(".step-1-inputs", '.step-2-inputs'), 600);
 				
-//button step2 add class
+    //button step2 add class
 				$('.btn-back').addClass('step-btn-2');
 				$('button.after').addClass('step-btn-2');
-//texts step2 change 
+    //texts step2 change 
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
 				$('.arrow-animated').addClass('start');
@@ -203,12 +234,14 @@ function slideToStep2 () {
 			var choothenInput = $(this).parents();
 		
 			if (choothenInput.hasClass('step-1-inputs')) {
+		
 				$('.step-1-inputs label').removeClass('step2-checked');
 				var step1Label = $(this).parents('label')
 				step1Label.addClass('step1-checked');
 //change img 
 				changeimg(step1Label); 
                  progressbar ('20');
+				
 				slideToStep2 ();
 			}
 			else if(choothenInput.hasClass('step-2-inputs')) {
@@ -221,7 +254,13 @@ function slideToStep2 () {
 			}
 		});
 
+$('.btn-next').click(function () {
+	var nextCheckbox = $('.radiobox-w-inner');
+	if (nextCheckbox.hasClass('step-2-inputs')) {
 
+		doNextStep('.step-2-inputs','.step-3-inputs');
+	}
+});
 
 		// Range sloder home top
 		$(".js-range-slider").ionRangeSlider({
