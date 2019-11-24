@@ -342,12 +342,15 @@ border-radius: 10px;
 	animation-iteration-count: infinite;
 }
 @keyframes MOVE-arr {
-	from {
+	0% {
     top: 5px;
 	}
-	to { 
-    top: 10px;
-	}
+	50% { 
+    top: 8px;
+  }
+  100%{
+    top: 5%;
+  }
 }
 .check-inner {
   background: linear-gradient(180deg, #FD6101 0%, #FC1D01 100%);
@@ -518,4 +521,25 @@ span.irs-bar.irs-bar--single {
 }
 .step3-checked .checked-boll {
   display: block;
+}
+.swiper-button-after, .swiper-button-before{
+  z-index: 300;
+  cursor: pointer;
+}
+.slide-top {
+	animation: slide-top 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes slide-top {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100%
+  {
+    transform: translateY(0);
+  }
 }
