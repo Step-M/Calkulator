@@ -34,6 +34,7 @@
 		<!-- Additional required wrapper -->
 	
 						<div class="radiobox-w swiper-wrapper">
+								
 							<div class="swiper-slide radiobox-w-inner step-1-inputs">
 								<label class="label-s1" for="novos-bez-ottdel">
 									<img src="img/novostroy-bez-otdelki.png" alt="">
@@ -64,7 +65,6 @@
 									</div>
 								</label>
 							</div>
-
 							<div class="swiper-slide radiobox-w-inner step-2-inputs">
 								<div class="s2-radio-w">
 										    <label class="label-s2" for="pod-cl">
@@ -175,7 +175,45 @@
 													</label>
 									</div>
 	
-								</div>
+							</div>
+							<div class="swiper-slide radiobox-w-inner step-5-resalt result-w">
+									<div class="text-line1">
+										 <div class="text-linr-title">Черновые материалы</div>
+										 <div class="dots-line"></div>
+										 <div class="text-li-result-tol"><span>127 400</span> руб.</div>
+									</div>
+									<div class="text-line1">
+											<div class="text-linr-title">Чистовые материалы</div>
+											<div class="dots-line"></div>
+											<div class="text-li-result-tol"><span>127 400</span> руб.</div>
+									</div>
+									<div class="spase-line"></div>
+									<div class="text-line1">
+											<div class="text-linr-title">Общая стоимость работ</div>
+											<div class="dots-line"></div>
+											<div class="text-li-result-tol"><span>127 400</span> руб.</div>
+									   </div>
+									   <div class="text-line1">
+											   <div class="text-linr-title">Ваша скидка</div>
+											   <div class="dots-line"></div>
+											   <div class="text-li-result-tol"><span>27 400</span> руб.</div>
+									   </div>
+									   <div class="spase-line"></div>
+									<div class="text-line1 total-line">
+											<div class="text-linr-title">Стоимость работ</div>
+											<div class="dots-line"></div>
+											<div class="text-li-result-tol"><span>6 400</span> руб./м <sup>2</sup> </div>
+									   </div>
+									   <div class="text-line1">
+											   <div class="text-linr-title">Сроки выполнения</div>
+											   <div class="dots-line"></div>
+											   <div class="text-li-result-tol"><span>35</span> дней</div>
+									   </div>
+									   <div class="information-text">Стоимость ремонта рассчитана ориентировочно. Для более детального расчёта конкретно 
+											Вашего ремонта необходима консультация специалиста. </div>
+										<button class="btn-call-popup">ПОЛУЧИТЬ РАСЧЕТ<img src="img/arrow-next.svg" alt=""></button>
+							</div>
+							
 						</div>
 		<!-- If we need pagination -->
 		<div class="swiper-pagination"></div>
@@ -301,15 +339,19 @@ var swiper = new Swiper('.swiper-container', {
 				$('.dir-text').removeClass('slide-top');
 			};
 			setTimeout(removeANime, 500);
+			$('.calc-content-bottom').removeClass('last-slide');
+			
 		}
 		else if (currentSlideNum == '5'){
-			$('.title-text').text('Когда нужно делать ремонт?');
-			$('.dir-text').addClass('slide-top').html('В зависимости от загрузки<br>наших мастеров мы сможем<br>оценить точные сроки <br>проведения отделочных <br> работ или реализации <br>дизайн-проекта')			
+			$('.title-text').text('Результат');
+			$('.dir-text').addClass('slide-top').html('Для того чтобы сделать <br>точный расчёт работ и <br> материалов необходим <br> выезд нашего специалиста <br>на объект. Эта услуга <br>предоставляется бесплатно.')			
+
 			function removeANime(){
 				$('.dir-text').removeClass('slide-top');
 			};
 			setTimeout(removeANime, 500);
-		}
+			$('.calc-content-bottom').addClass('last-slide');
+					}
 });
 
 
@@ -333,8 +375,9 @@ var swiper = new Swiper('.swiper-container', {
 				var thistexStep2 = $(this);
 				changeTextinp (thistexStep2);
 				step1Labe2.addClass('step2-checked');
+
 				progressbar ('40');
-				$('.btn-back').removeClass('step-btn-2').addClass('step-btn-1');
+				
 				$('.saleyellow-text span').text('10%');
 			}
 			else if(choothenInput.hasClass('step-3-inputs')) {
@@ -356,6 +399,8 @@ var swiper = new Swiper('.swiper-container', {
 				$('.saleyellow-text span').text('15%');
                  progressbar ('80');
 				 $('.saleyellow-text span').text('15%');
+				 thistexStep2 = $(this);
+				 changeTextinp (thistexStep2);
 				 swiper.slideNext();
 			}
 		});
