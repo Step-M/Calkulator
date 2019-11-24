@@ -142,34 +142,34 @@
 							</div>
 							<div class="swiper-slide radiobox-w-inner step-4-inputs">
 									<div class="s2-radio-w">
-												<label class="label-s2" for="pod-cl">
+												<label class="label-s4" for="nowtime">
 													<div class="bol-uncheck"></div>
-													<input type="radio" id="pod-cl" name="pod-cl11">
+													<input type="radio" id="nowtime" name="nowtime1">
 													<div class="radio-text">Можно приступать</div>
 													
 												</label>
 				
-												<label class="label-s2" for="komnata">
+												<label class="label-s4" for="thismonth">
 													<div class="bol-uncheck"></div>
-													<input type="radio" id="komnata" name="komnata-n">
+													<input type="radio" id="thismonth" name="thismonth-n">
 													<div class="radio-text">В этом месяце</div>
 												</label>
 				
-												<label class="label-s2" for="vanna">
+												<label class="label-s4" for="month2">
 													<div class="bol-uncheck"></div>
-													<input type="radio" id="vanna" name="vanna-n">
+													<input type="radio" id="month2" name="month2-n">
 													<div class="radio-text">В течение 2-х месяцев</div>
 												</label>
 				
-												<label class="label-s2" for="dom">
+												<label class="label-s4" for="timeyear">
 													<div class="bol-uncheck"></div>
-													<input type="radio" id="dom" name="dom-name">
+													<input type="radio" id="timeyear" name="timeyear-name">
 													
 													<div class="radio-text">В течение года</div>
 												</label>
-												<label class="label-s2" for="dom">
+												<label class="label-s4" for="timeafteryear">
 														<div class="bol-uncheck"></div>
-														<input type="radio" id="dom" name="dom-name">
+														<input type="radio" id="timeafteryear" name="timeafteryear-name">
 														
 														<div class="radio-text">Через год и более</div>
 													</label>
@@ -252,6 +252,7 @@ function changeTextinp (thistext){
 				$('.step2-text-checked').remove();
                $('<div class="step2-text-checked">'+blalala+'</div>').appendTo('.parm-rem-img-w');
 }
+
 var swiper = new Swiper('.swiper-container', {
     pagination: {
         el: '.swiper-pagination',
@@ -263,6 +264,101 @@ var swiper = new Swiper('.swiper-container', {
       },
 	  allowTouchMove: false,
     });
+
+	
+	swiper.on('slideChange', function () {
+		var currentSlideNum = $('span.swiper-pagination-current').html();
+		if (currentSlideNum == '1'){
+			$('.title-text').text('Где необходимо делать ремонт?');
+			$('.dir-text').addClass('slide-top').html('Зная тип Вашего жилья мы<br>сможем точнее понимать<br>какие работы и в каком <br>объёме нужно провести<br>для того, чтобы придать <br>квартире желаемый вид ')
+			function removeANime(){
+				$('.dir-text').removeClass('slide-top');
+			};
+			setTimeout(removeANime, 500);
+		}
+		else if (currentSlideNum == '2'){
+			$('.title-text').text('Какой объём работ необходимо выполнить?');
+			$('.dir-text').addClass('slide-top').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
+			$('.arrow-animated').addClass('start');
+	        function removeANime(){
+				$('.dir-text').removeClass('slide-top');
+			};
+			setTimeout(removeANime, 500);
+				
+		}
+		else if (currentSlideNum == '3'){
+			$('.title-text').text('Какой тип ремонта Вы бы хотели сделать?');
+			$('.dir-text').addClass('slide-top').html('В зависимости от состояния <br >квартиры и дома, а также <br>от пожеланий по типу <br>ремонта, мы подскажем, <br>какие работы и в каком <br>объёме нужно произвести')
+			function removeANime(){
+				$('.dir-text').removeClass('slide-top');
+			};
+			setTimeout(removeANime, 500);
+		}
+		else if (currentSlideNum == '4'){
+			$('.title-text').text('Когда нужно делать ремонт?');
+			$('.dir-text').addClass('slide-top').html('В зависимости от загрузки<br>наших мастеров мы сможем<br>оценить точные сроки <br>проведения отделочных <br> работ или реализации <br>дизайн-проекта')			
+			function removeANime(){
+				$('.dir-text').removeClass('slide-top');
+			};
+			setTimeout(removeANime, 500);
+		}
+		else if (currentSlideNum == '5'){
+			$('.title-text').text('Когда нужно делать ремонт?');
+			$('.dir-text').addClass('slide-top').html('В зависимости от загрузки<br>наших мастеров мы сможем<br>оценить точные сроки <br>проведения отделочных <br> работ или реализации <br>дизайн-проекта')			
+			function removeANime(){
+				$('.dir-text').removeClass('slide-top');
+			};
+			setTimeout(removeANime, 500);
+		}
+});
+
+
+	$(".radiobox-w input").click(function () {
+			var choothenInput = $(this).parents();
+		
+			if (choothenInput.hasClass('step-1-inputs')) {
+				$('.label-s1').removeClass('step1-checked');
+				var step1Label = $(this).parents('label');
+				step1Label.addClass('step1-checked');
+//change img 
+				changeimg(step1Label); 
+                progressbar ('20');
+				 //texts step2 change 
+				 $('.saleyellow-text span').text('3%');
+				swiper.slideNext();
+			}
+			else if(choothenInput.hasClass('step-2-inputs')) {
+                $('.label-s2').removeClass('step2-checked');
+				var step1Labe2 = $(this).parents('label');
+				var thistexStep2 = $(this);
+				changeTextinp (thistexStep2);
+				step1Labe2.addClass('step2-checked');
+				progressbar ('40');
+				$('.btn-back').removeClass('step-btn-2').addClass('step-btn-1');
+				$('.saleyellow-text span').text('10%');
+			}
+			else if(choothenInput.hasClass('step-3-inputs')) {
+				$('.step-3-inputs label').removeClass('step3-checked');
+				var stepLabel3 = $(this).parents('label')
+				stepLabel3.addClass('step3-checked');
+//change img 
+				changeimg(stepLabel3); 
+                 progressbar ('60');
+				 $('.saleyellow-text span').text('12%');
+				 $('.btn-back').removeClass('step-btn-3').addClass('step-btn-2');
+				 swiper.slideNext();
+			}
+			else if(choothenInput.hasClass('step-4-inputs')) {
+				$('.step-4-inputs label').removeClass('step2-checked');
+				var stepLabel4 = $(this).parents('label')
+				stepLabel4.addClass('step2-checked');
+				//change img 
+				$('.saleyellow-text span').text('15%');
+                 progressbar ('80');
+				 $('.saleyellow-text span').text('15%');
+				 swiper.slideNext();
+			}
+		});
 /*
 //animation labels move
 function slideAnime(animatedBlock) {	
