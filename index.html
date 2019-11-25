@@ -281,7 +281,11 @@
 		$('input[type="range"]').on('input', function () { });
 		//progress barr change
 		function progressbar(persent) {
-			$('.progress-color').attr('style', 'width:' + persent + '%');
+			$( '.progress-color' ).animate({
+				width: persent+'%'
+			}, 300, function() {
+				$('.progress-color').attr('style', 'width:' + persent + '%');
+			});
 			$('.calc-content-bottom span').text(persent + '%');
 		}
 		//change img 
@@ -628,7 +632,7 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 		/*
 	
-		3)Прогресс анимация, стрелка на кнопке
+		3)стрелка на кнопке
 
 		4) Форма верстка
 		5) Форма обрабатчик
