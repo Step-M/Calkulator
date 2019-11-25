@@ -306,6 +306,9 @@
 						$('.btn-back').removeClass('not-swipe-before');
 				
 				}
+				function blockbtns(){
+					$('.buttons-w').addClass('not-swipe');
+				}
 
 
 		var swiper = new Swiper('.swiper-container', {
@@ -336,8 +339,10 @@
 					progressbar('20');
 					//texts step2 change 
 				   $('.saleyellow-text span').text('3%');
+				   unlockbtns();
 					}	
 					else{
+						blockbtns();
 						progressbar('0');
 						//texts step2 change 
 				        $('.saleyellow-text span').text('0%');
@@ -357,8 +362,10 @@
 					progressbar('40');
 						//texts step2 change 
 				        $('.saleyellow-text span').text('6%');
+						unlockbtns();
 					}	
 					else{
+						blockbtns();
 						progressbar('20');
 							//texts step2 change 
 							$('.saleyellow-text span').text('3%');
@@ -377,8 +384,10 @@
 					progressbar('60');
 					//texts step2 change 
 					$('.saleyellow-text span').text('9%');
+					unlockbtns();
 					}	
 					else{
+						blockbtns();
 						progressbar('40');
 						//texts step2 change 
 				        $('.saleyellow-text span').text('6%');
@@ -396,8 +405,10 @@
 				if ($('.label-s4').hasClass("step2-checked")){
 					progressbar('80');
 					$('.saleyellow-text span').text('12%');
+					unlockbtns();
 					}	
 					else{
+						blockbtns();
 						progressbar('60');
 						$('.saleyellow-text span').text('9%');
 					}	
@@ -576,7 +587,6 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 				$('.saleyellow-text span').text('3%');
 				swiper.slideNext();
 				
-				unlockbtns();
 			}
 			else if (choothenInput.hasClass('step-2-inputs')) {
 				$('.label-s2').removeClass('step2-checked');
@@ -587,6 +597,7 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 				progressbar('40');
 
+				unlockbtns();
 				$('.saleyellow-text span').text('6%');
 				
 			}
@@ -617,141 +628,14 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 		/*
 	
-		3)Проценты скидки и прогресбар при прокрутке назадф
+		3)Прогресс анимация, стрелка на кнопке
 
 		4) Форма верстка
 		5) Форма обрабатчик
 		5) Преоенос на консруктор
 		6) Моб версия
 		
-		
-		
-		
-		//animation labels move
-		function slideAnime(animatedBlock) {	
-							$(animatedBlock).addClass('move-animate');	
-						}
-		function doNextStep (hideprevSlide, showNextSlide){
-			$(hideprevSlide).addClass('d-none').removeClass('move-animate');
-			$(showNextSlide).removeClass('d-none').addClass('opasitianime');
-			$(hideprevSlide).hide('slide', {direction: 'left'}, 1000);
-		}
-		function naextAnimation(nextslideClass) {
-		$(nextslideClass).removeClass('opasity-animation');
-		}
-		
-		//slide to step-2
-		function slideToStep2 () {
-						setTimeout(slideAnime, 500, ".step-1-inputs");
-						setTimeout(doNextStep, 700, ".step-1-inputs", '.step-2-inputs');
-						
-			//button step2 add class
-						$('.btn-back').addClass('step-btn-1');
-						$('button.after').addClass('step-btn-1');
-			//texts step2 change 
-						$('.title-text').text('Какой объём работ необходимо выполнить?');
-						$('.dir-text').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
-						$('.arrow-animated').addClass('start');
-		}
-		
-				$(".radiobox-w input").click(function () {
-					var choothenInput = $(this).parents();
-				
-					if (choothenInput.hasClass('step-1-inputs')) {
-				
-						$('.step-1-inputs label').removeClass('step2-checked');
-						var step1Label = $(this).parents('label')
-						step1Label.addClass('step1-checked');
-		//change img 
-						changeimg(step1Label); 
-						 progressbar ('20');
-						
-						slideToStep2 ();
-					}
-					else if(choothenInput.hasClass('step-2-inputs')) {
-						$('.label-s2').removeClass('step2-checked');
-						var step1Labe2 = $(this).parents('label');
-						var thistexStep2 = $(this);
-						changeTextinp (thistexStep2);
-						step1Labe2.addClass('step2-checked');
-						progressbar ('40');
-						$('.btn-back').removeClass('step-btn-2').addClass('step-btn-1');
-					}
-					else if(choothenInput.hasClass('step-3-inputs')) {
-						$('.step-3-inputs label').removeClass('step3-checked');
-						var stepLabel3 = $(this).parents('label')
-						stepLabel3.addClass('step3-checked');
-		//change img 
-						changeimg(stepLabel3); 
-						 progressbar ('60');
-						 $('.btn-back').removeClass('step-btn-3').addClass('step-btn-2');
-						 //slideToStep4 ();
-					}
-				});
-		//make shorter
-		$('.btn-next').click(function () {
-			var btnNext = $(this);
-			var btnBack2 = $('.btn-back');
-			if(btnNext.hasClass('step-btn-1')){
-				setTimeout(slideAnime, 100, ".step-1-inputs");
-				setTimeout(doNextStep, 700, '.step-1-inputs','.step-2-inputs');
-				progressbar ('20');
-				btnNext.removeClass('step-btn-1').addClass('step-btn-2');
-				btnNext.removeClass('step-btn-2')
-			}
-			else if (btnNext.hasClass('step-btn-2')) {
-				setTimeout(slideAnime, 100, ".step-2-inputs");
-				setTimeout(doNextStep, 700, '.step-2-inputs','.step-1-inputs');
-				progressbar ('40');
-				btnNext.removeClass('step-btn-2').addClass('step-btn-3');
-				btnBack2.removeClass('step-btn-2').addClass('step-btn-1');
-			}
-			else if(btnNext.hasClass('step-btn-3')){
-				setTimeout(slideAnime, 100, ".step-3-inputs");
-				setTimeout(doNextStep, 700, '.step-3-inputs','.step-4-inputs');
-				progressbar ('60');
-				btnNext.removeClass('step-btn-3').addClass('step-btn-4');
-				btnBack2.removeClass('step-btn-3').addClass('step-btn-4');
-			}
-			else if (btnNext.hasClass('step-btn-4')){
-				setTimeout(slideAnime, 100, ".step-4-inputs");
-				setTimeout(doNextStep, 700, '.step-4-inputs','.step-5-inputs');
-				progressbar ('80');
-				btnNext.removeClass('step-btn-4').addClass('step-btn-5');
-				btnBack2.removeClass('step-btn-4').addClass('step-btn-5');
-			}
-		});
-		//make shorter
-		$('.btn-back').click(function () {
-			var btnBack = $(this);
-			if(btnBack.hasClass('step-btn-1')){
-				setTimeout(slideAnime, 100, ".step-1-inputs");
-				setTimeout(doNextStep, 700, '.step-2-inputs','.step-1-inputs');
-			}
-			else if (btnBack.hasClass('step-btn-2')) {
-				setTimeout(slideAnime, 100, ".step-2-inputs");
-				setTimeout(doNextStep, 700, '.step-3-inputs','.step-2-inputs');
-				progressbar ('40');
-				btnNext.removeClass('step-btn-2').addClass('step-btn-1');
-				btnBack.removeClass('step-btn-2').addClass('step-btn-1');
-			}
-			else if(btnBack.hasClass('step-btn-3')){
-				setTimeout(slideAnime, 100, ".step-3-inputs");
-				setTimeout(doNextStep, 700, '.step-3-inputs','.step-3-inputs');
-				progressbar ('60');
-				btnNext.removeClass('step-btn-3').addClass('step-btn-2');
-				btnBack.removeClass('step-btn-3').addClass('step-btn-2');
-			}
-			else if (btnBack.hasClass('step-btn-4')){
-				setTimeout(slideAnime, 100, ".step-4-inputs");
-				setTimeout(doNextStep, 700, '.step-4-inputs','.step-4-inputs');
-				progressbar ('80');
-				btnNext.removeClass('step-btn-4').addClass('step-btn-3');
-				btnBack.removeClass('step-btn-4').addClass('step-btn-3');
-			}
-		});
 		*/
-
 
 		// Range sloder home top
 		$(".js-range-slider").ionRangeSlider({
