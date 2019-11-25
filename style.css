@@ -622,22 +622,52 @@ button.btn-call-popup {
 label.step2-checked {
   border: 1px solid #FC2E01;
 }
+.btn-next{
+  position: relative;
+}
+.btn-next:after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  background: linear-gradient(90deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.6) 100%);
+  width: 35px;
+  -webkit-transform: skewX(-22deg);
+  transform: skewX(-22deg);
+  left: -15%;
+  -webkit-animation-name: blick;
+  animation-name: blick;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
 
-
-novostroy
-belaya
-vtorfond
-
-
-label-s2
-
-kvartira
-komnata
-vannaya
-dom
-
-label-s3
-
-dizainer
-standart //evro
-kosmetic
+  @-webkit-keyframes blick{
+    60%{
+      left:100%
+    }
+    to{
+      left:110%
+    }
+  }
+  @keyframes blick{
+    60%{
+      left:100%
+    }
+      to
+      {
+        left:110%
+      }
+  }
+  .not-swipe{
+    cursor: not-allowed	;
+    /* pointer-events: none; */
+}
+.not-swipe .btn-next{
+  pointer-events: none;
+  cursor: not-allowed	;
+}
+.btn-back.swiper-button-disabled:hover {
+  border: 1px solid #C0C0C0;
+}
