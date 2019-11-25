@@ -232,8 +232,8 @@
 									</div>
 								</div>
 
-								<div class="buttons-w">
-									<div class="btn-back swiper-button-after"><img src="img/arrow-before.svg" alt="">
+								<div class="buttons-w not-swipe">
+									<div class="btn-back swiper-button-after not-swipe-before"><img src="img/arrow-before.svg" alt="">
 									</div>
 									<button class="btn-next after swiper-button-before">ДАЛЕЕ<img
 											src="img/arrow-next.svg" alt=""></button>
@@ -295,6 +295,18 @@
 			$('.step2-text-checked').remove();
 			$('<div class="step2-text-checked">' + blalala + '</div>').appendTo('.parm-rem-img-w');
 		}
+		function numberWithSpaces(x) {
+					return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+				}
+        		function unlockbtns (){
+		
+						$('.buttons-w').removeClass('not-swipe');
+						
+				
+						$('.btn-back').removeClass('not-swipe-before');
+				
+				}
+
 
 		var swiper = new Swiper('.swiper-container', {
 			pagination: {
@@ -318,8 +330,20 @@
 					$('.dir-text').removeClass('slide-top');
 				};
 				setTimeout(removeANime, 500);
-			}
-			else if (currentSlideNum == '2') {
+				
+			
+					if ($('.label-s1').hasClass("step1-checked")){
+					progressbar('20');
+					//texts step2 change 
+				   $('.saleyellow-text span').text('3%');
+					}	
+					else{
+						progressbar('0');
+						//texts step2 change 
+				        $('.saleyellow-text span').text('0%');
+					}	
+
+			} else if (currentSlideNum == '2') {
 				$('.title-text').text('Какой объём работ необходимо выполнить?');
 				$('.dir-text').addClass('slide-top').html('Площадь помещений и тип <br> ремонта напрямую влияют <br> на объём работ, а также на <br> необходимое количество <br>черновых и чистовых <br>материалов')
 				$('.arrow-animated').addClass('start');
@@ -327,7 +351,20 @@
 					$('.dir-text').removeClass('slide-top');
 				};
 				setTimeout(removeANime, 500);
-
+                
+	
+					if ($('.label-s2').hasClass("step2-checked")){
+					progressbar('40');
+						//texts step2 change 
+				        $('.saleyellow-text span').text('6%');
+					}	
+					else{
+						progressbar('20');
+							//texts step2 change 
+							$('.saleyellow-text span').text('3%');
+					}	
+      
+			  
 			}
 			else if (currentSlideNum == '3') {
 				$('.title-text').text('Какой тип ремонта Вы бы хотели сделать?');
@@ -336,6 +373,16 @@
 					$('.dir-text').removeClass('slide-top');
 				};
 				setTimeout(removeANime, 500);
+				if ($('.label-s3').hasClass("step3-checked")){
+					progressbar('60');
+					//texts step2 change 
+					$('.saleyellow-text span').text('9%');
+					}	
+					else{
+						progressbar('40');
+						//texts step2 change 
+				        $('.saleyellow-text span').text('6%');
+					}	
 			}
 			else if (currentSlideNum == '4') {
 				$('.title-text').text('Когда нужно делать ремонт?');
@@ -346,11 +393,20 @@
 				setTimeout(removeANime, 500);
 				$('.calc-content-bottom').removeClass('last-slide');
 
+				if ($('.label-s4').hasClass("step2-checked")){
+					progressbar('80');
+					$('.saleyellow-text span').text('12%');
+					}	
+					else{
+						progressbar('60');
+						$('.saleyellow-text span').text('9%');
+					}	
+
 			}
 			else if (currentSlideNum == '5') {
 				$('.title-text').text('Результат');
 				$('.dir-text').addClass('slide-top').html('Для того чтобы сделать <br>точный расчёт работ и <br> материалов необходим <br> выезд нашего специалиста <br>на объект. Эта услуга <br>предоставляется бесплатно.')
-
+				$('.saleyellow-text span').text('15%');
 				function removeANime() {
 					$('.dir-text').removeClass('slide-top');
 				};
@@ -373,9 +429,7 @@
 				var WorkCOst;
 				var Desdline;
 
-                function numberWithSpaces(x) {
-					return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-				}
+              
 				function ParmRemont(  kof_novostroy_kosmetic, kof_belaya_kosmetic, kof_vtorfond_kosmetic, kof_novostroy_standart, kof_belaya_standart, kof_vtorfond_standart, kof_novostroy_dizainer, kof_belaya_dizainer, kof_vtorfond_dizainer) {
 
 					if (firstStep == "novostroy" && firstStep3 == "kosmetic") {
@@ -507,6 +561,7 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 		$(".radiobox-w input").click(function () {
 			var choothenInput = $(this).parents();
+			
 
 			if (choothenInput.hasClass('step-1-inputs')) {
 				$('.label-s1').removeClass('step1-checked');
@@ -514,10 +569,14 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 				step1Label.addClass('step1-checked');
 				//change img 
 				changeimg(step1Label);
+
 				progressbar('20');
+				
 				//texts step2 change 
 				$('.saleyellow-text span').text('3%');
 				swiper.slideNext();
+				
+				unlockbtns();
 			}
 			else if (choothenInput.hasClass('step-2-inputs')) {
 				$('.label-s2').removeClass('step2-checked');
@@ -528,7 +587,8 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 				progressbar('40');
 
-				$('.saleyellow-text span').text('10%');
+				$('.saleyellow-text span').text('6%');
+				
 			}
 			else if (choothenInput.hasClass('step-3-inputs')) {
 				$('.step-3-inputs label').removeClass('step3-checked');
@@ -537,7 +597,7 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 				//change img 
 				changeimg(stepLabel3);
 				progressbar('60');
-				$('.saleyellow-text span').text('12%');
+				$('.saleyellow-text span').text('9%');
 				$('.btn-back').removeClass('step-btn-3').addClass('step-btn-2');
 				swiper.slideNext();
 			}
@@ -546,9 +606,8 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 				var stepLabel4 = $(this).parents('label')
 				stepLabel4.addClass('step2-checked');
 				//change img 
-				$('.saleyellow-text span').text('15%');
+				$('.saleyellow-text span').text('12%');
 				progressbar('80');
-				$('.saleyellow-text span').text('15%');
 				thistexStep2 = $(this);
 				changeTextinp(thistexStep2);
 				swiper.slideNext();
@@ -557,8 +616,7 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 
 
 		/*
-		1)Блик на кнопку
-		2) Кнопка назад на первом слайде
+	
 		3)Проценты скидки и прогресбар при прокрутке назадф
 
 		4) Форма верстка
