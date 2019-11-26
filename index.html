@@ -104,7 +104,7 @@
 												</div>
 											</div>
 											<div class="slider-inp">
-												<input id="demo" type="number" name="square" min="20" max="150"
+												<input id="metraz" type="number" name="square" min="20" max="150"
 													value="50"><span>м<sup>2</sup></span>
 											</div>
 										</div>
@@ -456,7 +456,7 @@
 				$('.calc-content-bottom').addClass('last-slide');
 				//CALKULATION
 				var cernMaterials;
-				var meters = $('.slider-inp #demo').val();
+				var meters = $('.slider-inp #metraz').val();
 
 				var firstStep2 = $('.label-s2 input:checked').val();
 
@@ -621,8 +621,14 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 			else if (choothenInput.hasClass('step-2-inputs')) {
 				$('.label-s2').removeClass('step2-checked');
 				var step1Labe2 = $(this).parents('label');
+				
 				var thistexStep2 = $(this);
-				changeTextinp(thistexStep2);
+				if (thistexStep2.is(':radio')) {
+					changeTextinp(thistexStep2);
+				}
+
+				
+
 				step1Labe2.addClass('step2-checked');
 
 				progressbar('40');
