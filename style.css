@@ -486,8 +486,11 @@ span.irs-bar.irs-bar--single {
 .slider-inp span {
   font-size: 23px;
   position: absolute;
-  bottom: 6px;
-  right: 23px;
+  bottom: 4px;
+  right: 21px;
+  background: white;
+  padding-left: 6px;
+  padding-top: 4px;
 }
 
 .slider-inp {
