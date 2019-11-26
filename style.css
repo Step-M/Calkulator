@@ -801,3 +801,21 @@ button.btn-call-popup.form-submit-style {
 .container-calc-out.clculator.hidden {
   visibility: hidden;
 }
+span.irs-grid {
+  width: 100%!important;
+  left: 2px!important;
+  font-size: 18px!important;
+}
+
+span.irs-grid span {
+  font-size: 14px!important;
+  /* top: 22px; */
+}
+
+span.irs-grid-text {
+  top: 21px;
+}
+
+span.irs-grid-pol {
+  top: 6px;
+}
