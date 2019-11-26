@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div class="container-calc-out">
+	<div class="container-calc-out clculator">
 		<div class="container-calc">
 			<div class="container-calc-inner">
 				<div class="sale-yellow">
@@ -213,8 +213,11 @@
 									<div class="information-text">Стоимость ремонта рассчитана ориентировочно. Для более
 										детального расчёта конкретно
 										Вашего ремонта необходима консультация специалиста. </div>
-									<button class="btn-call-popup">ПОЛУЧИТЬ РАСЧЕТ<img src="img/arrow-next.svg"
-											alt=""></button>
+										<div class="btn-call-popup-w">
+												<button class="btn-call-popup">ПОЛУЧИТЬ РАСЧЕТ<img src="img/arrow-next.svg"
+													alt=""></button>
+										</div>
+									
 								</div>
 
 							</div>
@@ -269,7 +272,30 @@
 		</div>
 	</div>
 
+<div class="modal-w d-none">
+		<div class="overlay"></div>
+	<div class="inner-modal">
+		
+		<div class="form-w">
+			<div class="inner-form-w">
+				<div class="logo-form"><img src="img/logo-academy.svg" alt="logo"></div>
+				<div class="close-form"><img src="img/close-img.svg" alt="close"></div>
+				<div class="title-form">Получить детальный расчет</div>
+				<div class="title-under-form-text">Бесплатная консультация<br>
+						и подробный расчет ремонта с материалами<br>
+						в 2-х вариантах + скидка на ремонт 15%</div>
+				<form action="#">
+					<input type="text" placeholder="Ваше имя">
+					<input  type="tel"  id="tel" value=""  placeholder="Контактный телефон">
+					<button class="btn-call-popup form-submit-style" type="submit">ПОЛУЧИТЬ РАСЧЕТ<img src="img/arrow-next.svg"
+						alt=""></button>
+				</form>
+				<img class="orange-arrow" src="img/arrow-form.svg" alt="orange-arrow">
+			</div>
+		</div>
 
+	</div>
+</div>
 
 
 
@@ -630,9 +656,13 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 		});
 
 
-		/*
-	
-		3)стрелка на кнопке
+
+		/*К этой кнопке (только к ней) нужно добавить эффект её приподнятия при
+наведении, получается у неё блик + поднятие при наведении
+
+Поднятие надо сделать как здесь: https://textgenerator.ru/  (где поднимаются
+блоки с шрифтами) но без тени
+
 
 		4) Форма верстка
 		5) Форма обрабатчик
@@ -677,6 +707,45 @@ if (firstStep2 == "kvartira" || firstStep2 == 'dom') {
 			});
 		});
 
+$(".btn-call-popup").click(function(){
+  $(".modal-w").removeClass("d-none");
+  $(".clculator").addClass('hidden');
+});
+$(".overlay, .close-form").click(function(){
+  $(".modal-w").addClass("d-none");
+  $(".clculator").removeClass('hidden');
+});
+window.addEventListener("DOMContentLoaded", function() {
+function setCursorPosition(pos, elem) {
+    elem.focus();
+    if (elem.setSelectionRange) elem.setSelectionRange(pos, pos);
+    else if (elem.createTextRange) {
+        var range = elem.createTextRange();
+        range.collapse(true);
+        range.moveEnd("character", pos);
+        range.moveStart("character", pos);
+        range.select()
+    }
+}
+
+function mask(event) {
+    var matrix = "+7 (___) ___ __ __",
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = this.value.replace(/\D/g, "");
+    if (def.length >= val.length) val = def;
+    this.value = matrix.replace(/./g, function(a) {
+        return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? "" : a
+    });
+    if (event.type == "blur") {
+        if (this.value.length == 2) this.value = ""
+    } else setCursorPosition(this.value.length, this)
+};
+    var input = document.querySelector("#tel");
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+});
 
 	</script>
 </body>
